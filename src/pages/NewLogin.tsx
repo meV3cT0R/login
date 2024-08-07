@@ -16,12 +16,13 @@ const NewLogin = () => {
     const [lding,setLding] = useState<boolean>(false);
     const navigate = useNavigate();
 
-
+    // focus the username input field when component is loaded
     useEffect(() => {
         if (userRef.current)
             userRef.current.focus()
     }, []);
 
+    // clears the error everytime user change the value of either username or password
     useEffect(() => {
         setError(false);
         setErrMsg("");
@@ -38,15 +39,20 @@ const NewLogin = () => {
                     "Content-Type": "application/json"
                 }
             }).then(res=>{
-                if(setAuth){
+                if(setAuth){ // check if setAuth function exist cause it could be null
                     setAuth({
                         username,
                         token:res.data.token
                     })
+
+                    // add response to the local storage to later retrieve it for maintaining users's session
+                    // this is for demo
+                    // It is unsecure to store auth tokens in the local storage
                     localStorage.setItem("auth", JSON.stringify({
                         username,
                         token:res.data.token
-                    }))
+                    })) 
+                      
                     navigate("/welcome",{
                         replace:true
                     })
