@@ -1,0 +1,67 @@
+.blush {
+    animation-name: blush;
+    animation-duration: 6s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+
+#lips {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+.error-popup {
+    animation-name:popup;
+    animation-duration:500ms;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    
+}
+
+.loading {
+    animation-name:mill;
+    animation-duration:1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes mill {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform : rotate(360deg);
+    }
+}
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: translate(-50%,100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%,0px);
+
+    }
+}
+
+@keyframes blush {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes smile {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
