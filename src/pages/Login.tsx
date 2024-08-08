@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./css/Login.css"
 import axios from "axios";
 import { NavigateFunction, useNavigate } from "react-router-dom";
@@ -18,8 +18,14 @@ const Login : React.FC<{}> = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [errCount, setErrCount] = useState<number>(0);
+    const [inEdge,SetInEdge] = useState<boolean>(false);
 
 
+    useEffect(()=> {
+        if(navigator.userAgent.includes("Edg") || navigator.userAgent.includes("Edge")) {
+            SetInEdge(true);
+        }
+    },[])
     const {setAuth} = useGlobalContext();
     const navigate: NavigateFunction = useNavigate();
 
@@ -159,13 +165,13 @@ const Login : React.FC<{}> = () => {
                             }}
                             autoComplete="new-password"
                         />
-                        <div 
+                        {inEdge || <div 
                         className="md:w-[10%] cursor-pointer max-md:bg-white/85"
                         onClick={()=>setShowPassword(!showPassword)}
                         >
                             <Eye show={showPassword}/>
 
-                        </div>
+                        </div>}
                     </div>
                     <button
                         disabled={loading}
