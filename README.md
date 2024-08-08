@@ -4,6 +4,7 @@
 
 - [Introduction](#introduction)
 - [How To Run](#How-To-Run)
+- [urls](#urls)
 
 ## Introduction
 Functional login page using React that validates user credentials against a provided API and handles success and error scenarios appropriately. If the credentials are correct (username: username, password: password), user is redirected to a second page at the route /welcome.
@@ -35,3 +36,8 @@ If the credentials are incorrect, appropriate error message is shown to the user
    ```bash
    npm run dev
    ```
+
+## urls
+- /login -> Login Page
+- /alt-login -> Alternative Login Page (this was the initial design but it looked unprofessional so made new one )
+- /welcome -> welcome page where user is redirected after they are succesfully logged in 
