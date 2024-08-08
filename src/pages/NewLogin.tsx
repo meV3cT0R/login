@@ -14,12 +14,18 @@ const NewLogin = () => {
     const [error, setError] = useState<boolean>(false);
     const [errMsg, setErrMsg] = useState<string>("")
     const [lding,setLding] = useState<boolean>(false);
+
+    const [inEdge,SetInEdge] = useState<boolean>(false);
     const navigate = useNavigate();
 
     // focus the username input field when component is loaded
     useEffect(() => {
         if (userRef.current)
             userRef.current.focus()
+
+        if(navigator.userAgent.includes("Edg") || navigator.userAgent.includes("Edge")) {
+            SetInEdge(true);
+        }
     }, []);
 
     // clears the error everytime user change the value of either username or password
@@ -122,11 +128,11 @@ const NewLogin = () => {
                                 value={password}
                             />
                             <label className={`px-2 absolute text-gray-500 z-[-10] peer-focus:text-purple-700 peer-focus:-translate-y-[35px] left-0 duration-300 text-xl bottom-0 ${password.trim() != '' && "-translate-y-[35px] text-purple-700" || ""}`}>Password</label>
-                            <div className="cursor-pointer"
+                            {inEdge || <div className="cursor-pointer"
                             onClick={()=>setShowPassword(!showPassword)}
                             >
                                 <Eye show={showPassword}/>
-                            </div>
+                            </div>}
                         </div>
                     </div>
 
