@@ -128,11 +128,11 @@ const NewLogin = () => {
                                 value={password}
                             />
                             <label className={`px-2 absolute text-gray-500 z-[-10] peer-focus:text-purple-700 peer-focus:-translate-y-[35px] left-0 duration-300 text-xl bottom-0 ${password.trim() != '' && "-translate-y-[35px] text-purple-700" || ""}`}>Password</label>
-                            {inEdge || <div className="cursor-pointer"
+                            {inEdge || <button className="cursor-pointer"
                             onClick={()=>setShowPassword(!showPassword)}
                             >
                                 <Eye show={showPassword}/>
-                            </div>}
+                            </button>}
                         </div>
                     </div>
 

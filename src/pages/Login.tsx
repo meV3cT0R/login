@@ -165,13 +165,13 @@ const Login : React.FC<{}> = () => {
                             }}
                             autoComplete="new-password"
                         />
-                        {inEdge || <div 
+                        {inEdge || <button 
                         className="md:w-[10%] cursor-pointer max-md:bg-white/85"
                         onClick={()=>setShowPassword(!showPassword)}
                         >
                             <Eye show={showPassword}/>
 
-                        </div>}
+                        </button>}
                     </div>
                     <button
                         disabled={loading}

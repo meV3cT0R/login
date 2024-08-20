@@ -29,7 +29,7 @@ const Popup : React.FC<{
             {msg}
                 </div>
                 <div className="flex-1"></div>
-            <div
+            <button
                 onClick={()=>{
                     hidePopup()
                 }}
@@ -52,7 +52,7 @@ const Popup : React.FC<{
                         sroke-linecap="round"
                     />
                 </svg>
-            </div>
+            </button>
         </div>
     )
 }
